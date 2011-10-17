@@ -12,11 +12,5 @@ public class DemoWindowComposer extends GenericForwardComposer {
 	
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
-		myComp.setText("Hello ZK Component!! Please click me.");
-	}
-	
-	public void onClick$myComp (ForwardEvent event) {
-		MouseEvent mouseEvent = (MouseEvent) event.getOrigin();
-		alert("You listen onClick: " + mouseEvent.getTarget());
 	}
 }
