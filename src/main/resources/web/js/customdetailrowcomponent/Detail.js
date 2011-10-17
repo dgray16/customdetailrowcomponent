@@ -20,51 +20,31 @@
  *
  */
 customdetailrowcomponent.Detail = zk.$extends(zul.Widget, {
-	_text:'', //default value for text attribute
-	
-	/**
-	 * Don't use array/object as a member field, it's a restriction for ZK object,
-	 * it will work like a static , share with all the same Widget class instance.
-	 *
-	 * if you really need this , assign it in bind_ method to prevent any trouble.
-	 *
-	 * TODO:check array or object , must be one of them ...I forgot. -_- by Tony
-	 */
-	
-	$define: {
-		/**
-		 * The member in $define means that it has its own setter/getter.
-		 * (It's a coding sugar.)
-		 *
-		 * If you don't get this ,
-		 * you could see the comment below for another way to do this.
-		 *
-		 * It's more clear.
-		 *
-		 */
-		text: function() { //this function will be called after setText() .
-		
-			if(this.desktop) {
-				//updated UI here.
-			}
-		}
-	},
-	/**
-	 * If you don't like the way in $define ,
-	 * you could do the setter/getter by yourself here.
-	 *
-	 * Like the example below, they are the same as we mentioned in $define section.
-	 */
-	/*
-	getText:function(){ return this._text; },
-	setText:function(val){
-		this._text = val;
-		if(this.desktop){
-		//update the UI here.
-		}
-	},
-	*/
-	
+    //private attributes
+    _contentStyle: '',
+    _contentSclass: '',
+    _open: false,
+
+    //getters
+    $define: {
+        contentStyle: function() {
+            //this.$n()
+            if(this.desktop) {
+                //updated UI here.
+            }
+        },
+        contentSclass: function() {
+            if(this.desktop) {
+                //updated UI here.
+            }
+        },
+        open: function() {
+            if(this.desktop) {
+                //updated UI here.
+            }
+        }
+    },
+
 	bind_: function () {
 		/**
 		 * For widget lifecycle , the super bind_ should be called
