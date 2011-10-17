@@ -25,57 +25,46 @@ customdetailrowcomponent.Detail = zk.$extends(zul.Widget, {
     _contentSclass: '',
     _open: false,
 
-    //getters
+    //setters
     $define: {
         contentStyle: function() {
-            //this.$n()
             if(this.desktop) {
-                //updated UI here.
+                this.$n('cave').css(_contentStyle);
             }
         },
         contentSclass: function() {
             if(this.desktop) {
-                //updated UI here.
+                this.$n('cave').attr('class',_contentSclass);
             }
         },
         open: function() {
             if(this.desktop) {
-                //updated UI here.
+                this.open(this._open);
             }
         }
     },
 
-	bind_: function () {
-		/**
-		 * For widget lifecycle , the super bind_ should be called
-		 * as FIRST STATEMENT in the function.
-		 * DONT'T forget to call supers in bind_ , or you will get error.
-		 */
-		this.$supers(customdetailrowcomponent.Detail,'bind_', arguments);
-	
-		//A example for domListen_ , REMEMBER to do domUnlisten in unbind_.
-		//this.domListen_(this.$n("cave"), "onClick", "_doItemsClick");
-	},
-	
-	/*
-		A example for domListen_ listener.
-	*/
-	/*
-	_doItemsClick: function (evt) {
-		alert("item click event fired");
-	},
-	*/
-	unbind_: function () {
-	
-		// A example for domUnlisten_ , should be paired with bind_
-		// this.domUnlisten_(this.$n("cave"), "onClick", "_doItemsClick");
-		
-		/*
-		* For widget lifecycle , the super unbind_ should be called
-		* as LAST STATEMENT in the function.
-		*/
-		this.$supers(customdetailrowcomponent.Detail,'unbind_', arguments);
-	},
+    //open or close the detail row
+    open: function (open, silent) {
+    },
+
+    //open event handler
+    _doOpen: function (evt) {
+        //we just change the value of the open property,
+        //the setter will do the rest
+        this.set('open', !this.get('open'));
+    },
+
+    bind_: function () {
+        this.$supers(customdetailrowcomponent.Detail,'bind_', arguments);
+        //set open listener
+        this.domListen_(this.$n('img'), "onClick", "_doOpen");
+    },
+
+    unbind_: function () {
+        this.domUnlisten_(this.$n('img'), "onClick", "_doOpen");
+        this.$supers(customdetailrowcomponent.Detail,'unbind_', arguments);
+    },
 	
 	getZclass: function () {
 		return this._zclass != null ? this._zclass: "z-detail";
