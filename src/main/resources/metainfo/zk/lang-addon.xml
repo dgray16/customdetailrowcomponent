@@ -8,7 +8,7 @@
     
 	<language-name>xul/html</language-name>
 	<component>
-		<component-name>detail</component-name> <!-- required -->
+		<component-name>detailrow</component-name> <!-- required -->
 		<component-class>com.igalia.java.zk.components.customdetailrowcomponent.Detail</component-class> <!-- required -->
 		<widget-class>customdetailrowcomponent.Detail</widget-class> <!-- required -->
 		<mold>

@@ -1,6 +1,6 @@
 <zk>
 	<window title="Hello World!!" border="normal" width="300px"
 		apply="ctrl.DemoWindowComposer">
-		<detail id="myComp" />
+		<detailrow id="myComp" />
 	</window>
 </zk>
