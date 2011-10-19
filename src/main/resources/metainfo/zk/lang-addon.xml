@@ -2,7 +2,7 @@
     <addon-name>customdetailrowcomponent</addon-name>
   	<version>
 		<version-class>com.igalia.java.zk.components.customdetailrowcomponent.Version</version-class>
-		<version-uid>0.0.1-SNAPSHOT</version-uid>
+		<version-uid>1.0.0</version-uid>
 		<zk-version>5.0.6</zk-version><!-- or later -->
 	</version>
     
