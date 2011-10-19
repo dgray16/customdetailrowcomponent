@@ -93,6 +93,9 @@ customdetailrowcomponent.Detail = zk.$extends(zul.Widget, {
         this.$supers(customdetailrowcomponent.Detail,'bind_', arguments);
         //set open listener
         this.domListen_(this.$n('img'), "onClick", "_doOpen");
+        //if the detail is open by refault, run open method
+        if(this.get('open'))
+            this.open(true);
     },
 
     unbind_: function () {
