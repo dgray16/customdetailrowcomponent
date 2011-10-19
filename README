@@ -1,7 +1,8 @@
 Name: customdetailrowcomponent
-Version: 1.0
+Version: 1.0.0
 Requires: ZK framework. Version >= 5.0.0
 Author: Jacobo Aragunde <jaragunde@igalia.com>
+Source: https://gitorious.org/customdetailrowcomponent
 License: AGPL
 Copyright: Igalia S.L., with some source code by Potix Corporation.
 
