@@ -104,6 +104,6 @@ customdetailrowcomponent.Detail = zk.$extends(zul.Widget, {
     },
 	
 	getZclass: function () {
-		return this._zclass != null ? this._zclass: "z-detail";
+		return this._zclass != null ? this._zclass: "z-detailrow";
 	}
 });
