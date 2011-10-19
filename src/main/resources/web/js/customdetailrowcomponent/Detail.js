@@ -46,6 +46,38 @@ customdetailrowcomponent.Detail = zk.$extends(zul.Widget, {
 
     //open or close the detail row
     open: function (open, silent) {
+        var cmp = this.$n();
+        if (cmp) {
+            var cls = this.getZclass();
+            jq(cmp)[open ? "addClass" : "removeClass"](cls + "-expd");
+            if (open) {
+                var td = jq(cmp).parents('td'),
+                    cave = this.$n("cave"),
+                    tr = this.parent.$n(),
+                    fake = tr.parentNode.insertRow(tr.rowIndex),
+                    cell = fake.insertCell(0);
+                jq(fake).attr('id', this.uuid + "-fake");
+                jq(cell).attr('colSpan', tr.cells.length);
+
+                jq(fake).addClass(cls + "-faker");
+                jq(td).attr('rowSpan', 2);
+                jq(cell).append(cave);
+                jq(cave).show();
+            } else {
+                var td = jq(cmp).parents('td'),
+                    cave = this.$n('cave'),
+                    tr = this.parent.$n(),
+                    fake = this.$n('fake');
+                jq(cave).hide();
+
+                // fix IE6 bug #2779453
+                // removed fix as we don't support IE6 in NavalPlan
+
+                jq(cmp).append(cave);
+                jq(td).attr('rowSpan', 1);
+                jq(fake).remove();
+            }
+        }
     },
 
     //open event handler
