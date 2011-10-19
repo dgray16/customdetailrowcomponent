@@ -85,6 +85,8 @@ customdetailrowcomponent.Detail = zk.$extends(zul.Widget, {
         //we just change the value of the open property,
         //the setter will do the rest
         this.set('open', !this.get('open'));
+        //send onOpen event to the server side component
+        zAu.send(new zk.Event(this, 'onOpen', {open : this.get('open')}));
     },
 
     bind_: function () {
