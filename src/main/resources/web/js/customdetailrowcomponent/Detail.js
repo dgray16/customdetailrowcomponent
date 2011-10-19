@@ -96,6 +96,8 @@ customdetailrowcomponent.Detail = zk.$extends(zul.Widget, {
         //if the detail is open by refault, run open method
         if(this.get('open'))
             this.open(true);
+        //assign correct class to the td that wraps the detailrow
+        jq(this.$n()).parents('td').attr('class', this.getZclass()+'-outer');
     },
 
     unbind_: function () {
