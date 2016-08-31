@@ -1,5 +1,5 @@
 Name: customdetailrowcomponent
-Version: 1.0.0
+Version: 1.1
 Requires: ZK framework. Version >= 5.0.0
 Author: Jacobo Aragunde <jaragunde@igalia.com>
 Source: https://gitorious.org/customdetailrowcomponent
@@ -14,10 +14,9 @@ One of those components is detail, which allows grids to behave as trees,
 allowing a row to expand and show more details with respect to the row item.
 
 This component is a fork from its GPL version at ZK 3.6.4 and initially used at
-Navalplan (www.navalplan.org) but it's free to use and modify by whoever wants
+LibrePlan (www.libreplan.org) but it's free to use and modify by whoever wants
 as it's released under the AGPL license (so remember to share your changes).
 
 NOTES
 
-To run the example code type: mvn jetty:run
-And to install the component: mvn install.
+To install the component: mvn install.

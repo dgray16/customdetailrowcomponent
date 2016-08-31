@@ -14,37 +14,40 @@ Copyright (C) 2008 Potix Corporation. All Rights Reserved.
 	it will be useful, but WITHOUT ANY WARRANTY.
 }}IS_RIGHT
 */
-package com.igalia.java.zk.components.customdetailrowcomponent;
+package com.libreplan.java.zk.components.customdetailrowcomponent;
 
 import org.zkoss.lang.Objects;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.UiException;
-import org.zkoss.zk.ui.event.*;
-import org.zkoss.zul.api.Row;
+import org.zkoss.zk.ui.event.Events;
+import org.zkoss.zk.ui.event.OpenEvent;
+import org.zkoss.zul.Row;
 import org.zkoss.zul.impl.XulElement;
 
 /**
  * The detail component is used to display a detailed section where a master row and
  * multiple detail rows are on the same row.
  *
- * <p>Event:
- * <ol>
- * <li>onOpen is sent when this component is opened or closed by user.</li>
- * </ol>
+ * <p>
+ *      Event:
+ *      <ol>
+ *          <li>onOpen is sent when this component is opened or closed by user.</li>
+ *      </ol>
  * </p>
  *
- * <p>Default {@link #getZclass}: z-detail.
+ * <p>Default {@link #getZclass}: z-detail.</p>
  *
- * <p>Default {@link #getWidth}: 18px. It depends on the width of the icon of
- * the detail.
+ * <p>Default {@link #getWidth}: 18px. It depends on the width of the icon of the detail.</p>
  *
  * @author jumperchen
  * @since 3.5.0
  */
-public class Detail extends XulElement implements org.zkoss.zul.api.Detail {
+public class Detail extends XulElement {
 	private boolean _open;
+
 	/** The style used for the content block. */
 	private String _cntStyle;
+
 	/** The style class used for the content block. */
 	private String _cntscls;
 
@@ -54,6 +57,8 @@ public class Detail extends XulElement implements org.zkoss.zul.api.Detail {
 
 	/**
 	 * Returns the CSS style for the content block of the window.
+     *
+     * @return {@link String}
 	 */
 	public String getContentStyle() {
 		return _cntStyle;
@@ -62,6 +67,8 @@ public class Detail extends XulElement implements org.zkoss.zul.api.Detail {
 	 * Sets the CSS style for the content block of the window.
 	 *
 	 * <p>Default: null.
+     *
+     * @param style
 	 */
 	public void setContentStyle(String style) {
 		if (!Objects.equals(_cntStyle, style)) {
@@ -72,12 +79,16 @@ public class Detail extends XulElement implements org.zkoss.zul.api.Detail {
 
 	/**
 	 * Returns the style class used for the content block.
+     *
+     * @return {@link String}
 	 */
 	public String getContentSclass() {
 		return _cntscls;
 	}
 	/**
 	 * Sets the style class used for the content block.
+     *
+     * @param scls
 	 */
 	public void setContentSclass(String scls) {
 		if (!Objects.equals(_cntscls, scls)) {
@@ -88,6 +99,8 @@ public class Detail extends XulElement implements org.zkoss.zul.api.Detail {
 
 	/**
 	 * Sets whether the detail is open.
+     *
+     * @param open
 	 */
 	public void setOpen(boolean open) {
 		if (_open != open) {
@@ -98,18 +111,24 @@ public class Detail extends XulElement implements org.zkoss.zul.api.Detail {
 
 	/**
 	 * Returns whether the detail is open.
+     *
+     * @return boolean
 	 */
 	public boolean isOpen() {
 		return _open;
 	}
-	//-- Component --//
+
+    /**
+     * //-- Component --//
+     *
+     * @return {@link String}
+     */
 	public String getZclass() {
 		return _zclass == null ? "z-detail" : _zclass;
 	}
 
 	// super
-	protected void renderProperties(org.zkoss.zk.ui.sys.ContentRenderer renderer)
-	throws java.io.IOException {
+	protected void renderProperties(org.zkoss.zk.ui.sys.ContentRenderer renderer) throws java.io.IOException {
 		super.renderProperties(renderer);
 
 		render(renderer, "open", this.isOpen());
@@ -120,11 +139,14 @@ public class Detail extends XulElement implements org.zkoss.zul.api.Detail {
 	public void beforeParentChanged(Component parent) {
 		if (parent != null && !(parent instanceof Row))
 			throw new UiException("Unsupported parent for detail: "+parent);
+
 		super.beforeParentChanged(parent);
 	}
 
-	//-- ComponentCtrl --//
-	/** Processes an AU request.
+
+	/**
+	 * //-- ComponentCtrl --//
+	 * Processes an AU request.
 	 *
 	 * <p>Default: in addition to what are handled by {@link XulElement#service},
 	 * it also handles onOpen.

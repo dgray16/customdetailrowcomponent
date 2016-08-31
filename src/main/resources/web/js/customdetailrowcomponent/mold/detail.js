@@ -8,9 +8,12 @@ function (out) {
 
     out.push('<div ', this.domAttrs_(), '>');
     out.push('<div id="', uuid, '-img" class="', zcls, '-img"></div>');
+
     out.push('<div id="', uuid, '-cave" style="', this._contentStyle,
             ';display:none;" class="', this._contentSclass, '">');
+
     for (var w = this.firstChild; w; w = w.nextSibling)
         w.redraw(out);
+
     out.push('</div></div>');
 }
