@@ -1,11 +1,5 @@
 <language-addon>
     <addon-name>customdetailrowcomponent</addon-name>
-  	<version>
-		<version-class>com.libreplan.java.zk.components.customdetailrowcomponent.Version</version-class>
-		<version-uid>1.1</version-uid>
-		<zk-version>8.0.1.1</zk-version><!-- or later -->
-	</version>
-    
 	<language-name>xul/html</language-name>
 	<component>
 		<component-name>detailrow</component-name> <!-- required -->

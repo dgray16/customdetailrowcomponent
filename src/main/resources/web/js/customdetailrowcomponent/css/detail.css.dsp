@@ -19,7 +19,7 @@
     background-image: url(${c:encodeURL('~./zul/img/grid/row-expand.png')});
 }
 .z-detailrow.z-detailrow-expd .z-detailrow-img {
-    background-position: -12px 3px;
+    background-position: -13px 3px;
 }
 tr.z-row .z-detailrow-outer {
     background: #C6E8FC repeat-y left;

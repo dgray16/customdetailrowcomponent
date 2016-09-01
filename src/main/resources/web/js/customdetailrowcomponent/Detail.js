@@ -1,8 +1,6 @@
 /**
- *
  * Base naming rule:
- * The stuff start with "_" means private , end with "_" means protect ,
- * others mean public.
+ * The stuff start with "_" means private , end with "_" means protect , others mean public.
  *
  * All the member field should be private.
  *
@@ -14,10 +12,8 @@
  * 4. call bind_ to bind the event to dom .
  *
  * this.deskop will be assigned after super bind_ is called,
- * so we use it to determine whether we need to update view
- * manually in setter or not.
+ * so we use it to determine whether we need to update view manually in setter or not.
  * If this.desktop exist , means it's after mold rendering.
- *
  */
 customdetailrowcomponent.Detail = zk.$extends(zul.Widget, {
     // Private attributes
@@ -46,18 +42,23 @@ customdetailrowcomponent.Detail = zk.$extends(zul.Widget, {
 
     // Open or close the detail row
     open: function (open) {
+        console.log("I am here");
         var cmp = this.$n();
         if (cmp) {
             var cls = this.getZclass();
             jq(cmp)[open ? "addClass" : "removeClass"](cls + "-expd");
             if (open) {
 
+                /* 
+                 * After migration from ZK5 to ZK8, tr.rowIndex started to return 0, but should be 1.
+                 * It makes influence on order of components to be expanded.
+                 */
                 var td = jq(cmp).parents('td'),
                     cave = this.$n("cave"),
                     tr = this.parent.$n(),
-                    fake = tr.parentNode.insertRow(tr.rowIndex),
+                    fake = tr.parentNode.insertRow(tr.rowIndex + 1),
                     cell = fake.insertCell(0);
-
+                
                 jq(fake).attr('id', this.uuid + "-fake");
                 jq(cell).attr('colSpan', tr.cells.length);
 
