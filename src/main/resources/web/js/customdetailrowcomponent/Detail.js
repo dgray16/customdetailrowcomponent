@@ -42,7 +42,6 @@ customdetailrowcomponent.Detail = zk.$extends(zul.Widget, {
 
     // Open or close the detail row
     open: function (open) {
-        console.log("I am here");
         var cmp = this.$n();
         if (cmp) {
             var cls = this.getZclass();
