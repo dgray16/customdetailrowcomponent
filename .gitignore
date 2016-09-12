@@ -6,6 +6,10 @@ target
 .project
 .settings/
 
+# ignore Intellij IDEA configuration files
+.idea
+*.iml
+
 #ignore patches files
 *.patch
 
